@@ -16,12 +16,6 @@ COPY . .
 
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
-RUN npm install
-RUN php artisan migrate:fresh --seed
-RUN php artisan key:generate
-RUN php artisan config:cache
-RUN php artisan route:cache
-RUN php artisan view:cache
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www \
